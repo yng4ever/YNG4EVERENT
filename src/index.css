@@ -1438,3 +1438,143 @@ button { font-family: var(--font-mono); }
 }
 .sc-meta a { color: #ccc; text-decoration: none; }
 .sc-meta a:hover { color: var(--text); }
+
+/* ─── HAMBURGER (hidden on desktop) ─────── */
+.nav-hamburger { display: none; }
+
+/* ─── NO CURSOR ON TOUCH ─────────────────── */
+@media (pointer: coarse) {
+  .cursor-dot { display: none; }
+  *, *::before, *::after { cursor: auto !important; }
+}
+
+/* ─── MOBILE ─────────────────────────────── */
+@media (max-width: 768px) {
+
+  /* NAV */
+  .nav { padding: 16px 20px; }
+  .nav-hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    padding: 6px;
+    z-index: 200;
+    position: relative;
+  }
+  .nav-hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--text);
+    transition: transform 0.22s, opacity 0.22s;
+  }
+  .nav-hamburger.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-hamburger.is-open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  .nav-links {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(6,6,6,0.98);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 36px;
+    z-index: 150;
+  }
+  .nav-links.nav-links-open { display: flex; }
+  .nav-links a { font-size: 14px; letter-spacing: 0.2em; }
+  .nav-collab { padding: 12px 28px !important; }
+
+  /* HERO */
+  .hero { padding: 0 20px; }
+  .hero-location { display: none; }
+  .hero-main { font-size: clamp(48px, 13vw, 90px); }
+  .hero-ent { font-size: clamp(10px, 3.2vw, 16px); letter-spacing: 0.25em; }
+  .hero-tagline { font-size: 11px; letter-spacing: 0.2em; }
+
+  /* ABOUT */
+  .about { grid-template-columns: 1fr; gap: 28px; padding: 56px 20px; }
+  .about-title { font-size: clamp(52px, 12vw, 90px); }
+  .about-text { font-size: 16px; }
+
+  /* SOUNDCLOUD */
+  .soundcloud-section { padding: 56px 20px; }
+
+  /* ROSTER PREVIEW */
+  .roster-preview { padding: 56px 20px; }
+  .roster-preview-grid { grid-template-columns: repeat(3, 1fr); }
+  .section-heading { font-size: clamp(40px, 10vw, 80px); }
+
+  /* VIDEO SECTION */
+  .video-section { padding: 56px 20px; }
+  .video-title { font-size: clamp(36px, 9vw, 72px); }
+
+  /* HOME BLOCKS */
+  .home-blocks { grid-template-columns: 1fr; margin: 0 20px 56px; }
+  .home-block { padding: 32px; min-height: 140px; }
+
+  /* PAGE HEADER */
+  .page-header { padding: 96px 20px 28px; }
+  .page-title { font-size: clamp(36px, 9vw, 72px); }
+  .page-subtitle { font-size: 15px; }
+
+  /* STORE */
+  .store-body { padding: 28px 20px 56px; }
+  .products-grid { grid-template-columns: 1fr; }
+  .products-grid-2 { grid-template-columns: 1fr; }
+  .bundle-inner { padding: 28px; flex-direction: column; }
+  .bundle-price { font-size: clamp(40px, 10vw, 64px); }
+  .free-box { padding: 40px 20px 28px; }
+
+  /* COLLAB */
+  .collab-body { padding: 0 20px 56px; }
+  .collab-ig-wrap { padding: 20px; }
+  .collab-oppure {
+    border-left: none;
+    border-right: none;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .collab-grid { grid-template-columns: 1fr; gap: 20px; }
+  .collab-panel { padding: 28px; }
+
+  /* ROSTER PAGE */
+  .roster-page-header { padding: 96px 20px 20px; }
+  .roster-section-wrap {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 48px 20px;
+  }
+  .founders-grid { grid-template-columns: 1fr; margin: 0; }
+  .roster-main-grid { grid-template-columns: 1fr; margin: 0; }
+  .guest-row { margin: 0; }
+  .member-card { padding: 28px; }
+  .founder-front { padding: 28px; }
+  .founder-flip { min-height: 220px; }
+  .founder-flip-inner { min-height: 220px; }
+
+  /* SESSIONS */
+  .sessions-stream { margin: 0 20px 16px; }
+  .sessions-stream-btns { padding: 0 20px; flex-wrap: wrap; margin-bottom: 40px; }
+  .archive-section { padding: 0 20px 56px; }
+  .archive-grid-single { max-width: 100%; }
+
+  /* FOOTER */
+  .footer { padding: 36px 20px 24px; }
+
+  /* MERCH */
+  .merch-simple { padding: 60px 20px; min-height: 50vh; }
+  .merch-notify-section { padding: 36px 20px 56px; }
+  .merch-notify { padding: 0; max-width: 100%; }
+}
+
+@media (max-width: 480px) {
+  .roster-preview-grid { grid-template-columns: repeat(2, 1fr); }
+  .hero-main { font-size: clamp(40px, 12vw, 72px); }
+  .free-box-links { flex-direction: column; }
+}
